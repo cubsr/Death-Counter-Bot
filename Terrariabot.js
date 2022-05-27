@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 var logger = require('winston');
 const Sequelize = require('sequelize');
 var auth = require('./auth.json');
-const PREFIX = '!';
-const { Op } = require('sequelize')
+const { Op } = require('sequelize');
+const banndedUser = "";
 var bot = new Discord.Client({
 
 	intents: ["DIRECT_MESSAGE_REACTIONS", "GUILDS", "DIRECT_MESSAGES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"],
@@ -126,7 +126,7 @@ bot.on('messageCreate', async message => {
 
 				if(args[1]){
 					if(getUserFromMention(args[1]) != null){
-						if(getUserFromMention(args[1]) == message.author.username || message.author.username == "PeacockX"){
+						if(getUserFromMention(args[1]) == message.author.username || message.author.username == banndedUser){
 
 							message.reply("You can not delete your own death");
 
